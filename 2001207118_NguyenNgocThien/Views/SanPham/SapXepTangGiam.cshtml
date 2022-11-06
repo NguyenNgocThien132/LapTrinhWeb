@@ -1,0 +1,103 @@
+﻿@model List<_2001207118_NguyenNgocThien.Models.SanPham>
+@{
+    ViewBag.Title = "SapXepTangGiam";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        double tietkiem = 0, sale = 0; ;
+        tietkiem = Convert.ToDouble(item.GiaGiam) - Convert.ToDouble(item.GiaTien);
+        sale = Math.Round(100 - ((Convert.ToDouble(item.GiaTien) / Convert.ToDouble(item.GiaGiam)) * 100), 2);
+        <div class="col-md-2 mt-2 mb-3">
+            <a style="text-decoration: none" href="#">
+                <div class="card border-0" style="border:none">
+                    <div class="card-img p-2 position-relative">
+                        <img class="w-100 imgSP" src="~/img/@item.NhaSanXuat/@item.HinhAnh" alt="Alternate Text" />
+                    </div>
+                    @if (item.GiaGiam != null)
+                    {
+                        <div style="border-radius: 5px; height: 36px;width: 90px; line-height: 12px; padding: 0.25rem 0.5rem;top: 115px;left: 7px; background-image:url(../../img/tietkiem.png); background-size: 100%;background-repeat: no-repeat" class="position-absolute">
+                            <div style="font-size: 10px; font-weight: 700; color: rgb(255, 213, 145);">Tiết kiệm</div>
+                            <div style=" font-size: 13px; line-height: 18px; font-weight: 700; color: rgb(255, 255, 255);">@tietkiem.ToString("C")</div>
+                        </div>
+                    }
+                    <div class="card-body" style="padding: 7px">
+                        <p style="display: block; display: -webkit-box; -webkit-line-clamp: 1; /* số dòng hiển thị */ -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; " class="card-title text-black">
+                            @item.TenSP
+                        </p>
+                        <p style="height: 80px;" class="card-text text-primary">
+                            <span style="color: rgb(230, 152, 58); font-weight: 500; font-size: 12px; line-height: 16px; ">Còn @item.SoLuong sản phẩm</span>
+                            <span style="font-size: 15px; font-weight: 700; color: rgb(20, 53, 195);line-height: 24px ">@item.GiaTien.Value.ToString("C")</span>
+                            @if (item.GiaGiam != null)
+                            {
+                                <del style="color: gray;font-size:13px">@item.GiaGiam.Value.ToString("C")</del>
+                                <span style="font-size: 15px; font-weight: 400; color: rgb(20, 53, 195)">@sale%</span>
+                            }
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>
+@{
+    int PrevPage = ViewBag.Page - 1;
+    if (PrevPage < 1)
+    {
+        PrevPage = 1;
+    }
+    int NextPage = ViewBag.Page + 1;
+    if (NextPage > ViewBag.NoOfPage)
+    {
+        NextPage = ViewBag.NoOfPage;
+    }
+}
+<div>
+    <ul class="pagination justify-content-center">
+        @if (ViewBag.Page == 1)
+        {
+            <li class="page-item disabled">
+                <a class="page-link" href="/sanpham/sapxeptanggiam?Page=@PrevPage">Prev</a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item">
+                <a class="page-link" href="/sanpham/sapxeptanggiam?Page=@PrevPage&&sapxep=@ViewBag.sapxep">Prev</a>
+            </li>
+        }
+
+
+        @for (int i = 0; i < ViewBag.NoOfPage; i++)
+        {
+            if (i + 1 == ViewBag.Page)
+            {
+                <li class="page-item active">
+                    <a class="page-link" href="/sanpham/sapxeptanggiam?Page=@(i+1)&&sapxep=@ViewBag.sapxep">@(i+1)</a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item">
+                    <a class="page-link" href="/sanpham/sapxeptanggiam?Page=@(i+1)&&sapxep=@ViewBag.sapxep">@(i+1)</a>
+                </li>
+            }
+        }
+
+        @if (ViewBag.Page == ViewBag.NoOfPage)
+        {
+            <li class="page-item disabled">
+                <a class="page-link" href="/sanpham/sapxeptanggiam?Page=@NextPage">Next</a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item">
+                <a class="page-link" href="/sanpham/sapxeptanggiam?Page=@NextPage&&sapxep=@ViewBag.sapxep">Next</a>
+            </li>
+        }
+    </ul>
+</div>
+

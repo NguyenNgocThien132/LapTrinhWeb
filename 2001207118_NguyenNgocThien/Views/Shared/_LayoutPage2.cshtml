@@ -1,0 +1,364 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/CSS/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+            integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        #nuttruoc {
+            width: 50px;
+            height: 50px;
+            background-color: tomato;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            display: none;
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        .fa-sharp {
+            position: fixed;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            bottom: 85px;
+            right: 37px;
+            font-size: 20px;
+            color: yellow;
+        }
+    </style>
+</head>
+<body style="font-family: Roboto, sans-serif; line-height: 1.25rem; background-color: rgb(248, 248, 252); ">
+    <div style="background-color: #1435c3">
+        <nav style="width: 1200px; background-color: #1435c3" class="navbar navbar-expand-sm navbar-dark m-auto">
+            <ul class="navbar-nav m-auto a-white">
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/quanly">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Khuyến mãi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Hệ thống Showroom</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tư vấn mua hàng: 1800 6867</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">CSKH: 1800 6865</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tin công nghệ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Xây dựng cấu hình</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div style="box-shadow: 0px 5px 10px 1px gray">
+        <nav style="width: 1200px;" class="navbar navbar-expand-sm navbar-dark m-auto">
+            <ul style="max-width: 1200px" class="navbar-nav a-gray">
+                <li class="nav-item me-2  align-self-center">
+                    <a href="#">
+                        <img style="width: 100px" src="~/img/logo.png" alt="Alternate Text" />
+                    </a>
+                </li>
+
+                <li class="nav-item align-self-center">
+                    <input style="width: 450px" class="form-control" type="text" name="name" value="" placeholder="Nhập từ khóa cần tìm" />
+                </li>
+                <li class="nav-item align-self-center">
+                    <a style="width: 100px; color: white" class="btn btn-primary" href="#">Tìm kiếm</a>
+                </li>
+                <li class="nav-item ms-2">
+                    <div class="justify-content-center d-flex align-items-center">
+                        <div>
+                            <img style="width: 50px" src="~/img/user.png" alt="Alternate Text" />
+                        </div>
+                        <div>
+                            <a class="nav-link" href="#">Đăng nhập</a>
+                            <a class="nav-link" href="#">Đăng kí</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item ms-2 align-self-center">
+                    <img style="width: 50px" src="~/img/chuong.png" alt="Alternate Text" />
+                </li>
+                <li class="nav-item ms-2">
+                    <div class="justify-content-center d-flex align-items-center">
+                        <div>
+                            <img style="width: 50px" src="~/img/giohang.png" alt="Alternate Text" />
+                        </div>
+                        <div>
+                            <a class="nav-link" href="#">Giỏ hàng của bạn</a>
+                            <a class="nav-link" href="#">(0) sản phẩm</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    @* ================================================================================================================= *@
+    <div style="width: 1200px;" class="m-auto mt-3">
+        <div class="row">
+            <div class="col-md-2">
+                <div style="border-radius: 5px; padding: 15px;background-color: white">
+                    <form action="" method="post">
+                        <label class="mb-2" for="Sort">Khoảng giá</label>
+                        <select id="sort" class="form-select">
+                            <option value="">Lọc theo giá...</option>
+                            <option value="value1">Dưới 10 triệu</option>
+                            <option value="value2">10 - 15 triệu</option>
+                            <option value="value3">15 - 20 triệu</option>
+                            <option value="value4">20 - 25 triệu</option>
+                            <option value="value5">25 - 30 triệu</option>
+                            <option value="value6">Trên 30 triệu</option>
+                        </select>
+                    </form>
+
+                    <hr />
+                    <form action="/" method="post">
+                        <label class="mb-2" for="ThuongHieuID">Thương hiệu</label>
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="checkbox" id="ThuongHieu1" name="NhaSanXuat" value="Acer" />
+                                Acer
+                            </div>
+                            <div class="col-6">
+                                <input type="checkbox" id="ThuongHieu2" name="NhaSanXuat" value="ASUS" />
+                                ASUS
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="checkbox" id="ThuongHieu3" name="NhaSanXuat" value="DELL" />
+                                DELL
+                            </div>
+                            <div class="col-6">
+                                <input type="checkbox" id="ThuongHieu4" name="NhaSanXuat" value="Apple" />
+                                Apple
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="checkbox" id="ThuongHieu5" name="NhaSanXuat" value="MSI" />
+                                MSI
+                            </div>
+                            <div class="col-6">
+
+                            </div>
+                        </div>
+                    </form>
+                    <hr />
+                    <form action="/" method="post">
+                        <label class="mb-2" for="">Phân loại</label> <br />
+                        <input type="checkbox" id="loai1" name="LoaiSP" value="Gaming" /> Gaming <br />
+                        <input type="checkbox" id="loai2" name="LoaiSP" value="HocSinh" /> Học sinh - Sinh viên <br />
+                        <input type="checkbox" id="loai3" name="LoaiSP" value="VanPhong" /> Văn phòng <br />
+                        <input type="checkbox" id="loai4" name="LoaiSP" value="DoanhNhan" /> Doanh nhân <br />
+                        <input type="checkbox" id="loai5" name="LoaiSP" value="DoHoa" /> Đồ họa - Kỹ thuật
+                    </form>
+                    <hr />
+
+                    <form action="/" method="post">
+                        <label class="mb-2" for="">Series laptop</label> <br />
+                        <input type="checkbox" id="seri1" name="name" value="Aspire 3" /> Aspire 3 <br />
+                        <input type="checkbox" id="seri2" name="name" value="Aspire 5" /> Aspire 5 <br />
+                        <input type="checkbox" id="seri3" name="name" value="Aspire 7" /> Aspire 7 <br />
+                        <input type="checkbox" id="seri4" name="name" value="VivoBook" /> VivoBook <br />
+                        <input type="checkbox" id="seri5" name="name" value="Swift 3" /> Swift 3 <br />
+                        <input type="checkbox" id="seri6" name="name" value="Swift 5" /> Swift 5 <br />
+                        <input type="checkbox" id="seri7" name="name" value="Modern" /> Modern <br />
+                        <input type="checkbox" id="seri8" name="name" value="Thin" /> Thin
+                    </form>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-10">
+                <div class="d-flex align-items-center mb-2 p-2" style="background-color: white;border-radius: 5px">
+                    <h6 class="mx-3 mt-2">Sắp xếp theo</h6>
+                    <a class="btn btn-outline-primary mx-3" href="/sanpham/sapxeptanggiam?sapxep=giam&&Page=@ViewBag.Page">Giá giảm dần</a>
+                    <a class="btn btn-outline-primary mx-3" href="/sanpham/sapxeptanggiam?sapxep=tang&&Page=@ViewBag.Page">Giá tăng dần</a>
+                </div>
+                @RenderBody()
+            </div>
+        </div>
+
+    </div>
+
+    <footer style="background-color: lightgray" class="p-3 mt-3">
+        <div style="max-width: 1200px" class="row m-auto">
+            <div class="row">
+                <div style="font-size: 12px" class="col-5">
+                    <h5>CÔNG TY CỔ PHẦN THƯƠNG MẠI - DỊCH VỤ NGUYỄN NGỌC THIÊN</h5>
+                    <p>
+                        © 1997 - 2020 Công Ty Cổ Phần Thương Mại - Dịch Vụ Phong Vũ
+                        Giấy chứng nhận đăng ký doanh nghiệp: 0304998358 do Sở KH-ĐT TP.HCM
+                        cấp lần đầu ngày 30 tháng 05 năm 2007
+                    </p>
+                </div>
+                <div style="font-size: 12px" class="col-5">
+                    <h6>Địa chỉ trụ sở chính:</h6>
+                    <p>Tầng 5, Số 117-119-121 Nguyễn Du, Phường Bến Thành, Quận 1, Thành Phố Hồ Chí Minh</p>
+                    <h6>Văn phòng điều hành miền Bắc:</h6>
+                    <p>Tầng 6, Số 1 Phố Thái Hà, Phường Trung Liệt, Quận Đống Đa, Hà Nội                    </p>
+                    <h6>Văn phòng điều hành miền Nam:</h6>
+                    <p>
+                        Tầng 11 Minh Long Tower, số 17 Bà Huyện Thanh Quan,
+                        Phường Võ Thị Sáu, Quận 3, TP. Hồ Chí Minh
+                    </p>
+                </div>
+                <div class="col-2">
+                    <img src="~/img/thongbao.png" alt="Alternate Text" />
+                    <img src="~/img/dmca.png" alt="Alternate Text" />
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="nuttruoc">
+        <i class="fa-sharp fa-solid fa-arrow-up"></i>
+    </div>
+
+
+
+
+    @* ====================================================================================== *@
+    <script>
+        $(document).ready(function () {
+            $(window).scroll
+                (
+                    function () {
+                        if ($(this).scrollTop()) {
+                            $('#nuttruoc').fadeIn();
+                        }
+                        else {
+                            $('#nuttruoc').fadeOut();
+                        }
+
+                    }
+                )
+            $('#nuttruoc').click
+                (
+                    function () {
+                        $('html, body').animate({ scrollTop: 0, }, 5);
+                    }
+                )
+        }
+        );
+    </script>
+    <script>
+        $('#sort').change(function () {
+            const value = $('#sort').val();
+            window.location.href = "/sanpham/sapxeptheogia?sort=" + value;
+        });
+    </script>
+    <script>
+        $('#ThuongHieu1').change(function () {
+            const value = $('#ThuongHieu1').val();
+            window.location.href = "/sanpham/sapxeptheothuonghieu?&&thuonghieu=" + value;
+        });
+        $('#ThuongHieu2').change(function () {
+            const value = $('#ThuongHieu2').val();
+            window.location.href = "/sanpham/sapxeptheothuonghieu?&&thuonghieu=" + value;
+        });
+        $('#ThuongHieu3').change(function () {
+            const value = $('#ThuongHieu3').val();
+            window.location.href = "/sanpham/sapxeptheothuonghieu?&&thuonghieu=" + value;
+        });
+        $('#ThuongHieu4').change(function () {
+            const value = $('#ThuongHieu4').val();
+            window.location.href = "/sanpham/sapxeptheothuonghieu?&&thuonghieu=" + value;
+        });
+        $('#ThuongHieu5').change(function () {
+            const value = $('#ThuongHieu5').val();
+            window.location.href = "/sanpham/sapxeptheothuonghieu?&&thuonghieu=" + value;
+        });
+    </script>
+    <script>
+        $('#loai1').change(function () {
+            const value = $('#loai1').val();
+            window.location.href = "/sanpham/sapxepphanloai?phanloai=" + value;
+        });
+        $('#loai2').change(function () {
+            const value = $('#loai2').val();
+            window.location.href = "/sanpham/sapxepphanloai?phanloai=" + value;
+        });
+        $('#loai3').change(function () {
+            const value = $('#loai3').val();
+            window.location.href = "/sanpham/sapxepphanloai?phanloai=" + value;
+        });
+        $('#loai4').change(function () {
+            const value = $('#loai4').val();
+            window.location.href = "/sanpham/sapxepphanloai?phanloai=" + value;
+        });
+        $('#loai5').change(function () {
+            const value = $('#loai5').val();
+            window.location.href = "/sanpham/sapxepphanloai?phanloai=" + value;
+        });
+    </script>
+    <script>
+        $('#seri1').change(function () {
+            const value = $('#seri1').val();
+            window.location.href = "/sanpham/SeriesSanPham?series=" + value;
+        });
+        $('#seri2').change(function () {
+            const value = $('#seri2').val();
+            window.location.href = "/sanpham/SeriesSanPham?series=" + value;
+        });
+        $('#seri3').change(function () {
+            const value = $('#seri3').val();
+            window.location.href = "/sanpham/SeriesSanPham?series=" + value;
+        });
+        $('#seri1').change(function () {
+            const value = $('#seri1').val();
+            window.location.href = "/sanpham/SeriesSanPham?series=" + value;
+        });
+        $('#seri4').change(function () {
+            const value = $('#seri4').val();
+            window.location.href = "/sanpham/SeriesSanPham?series=" + value;
+        });
+        $('#seri1').change(function () {
+            const value = $('#seri1').val();
+            window.location.href = "/sanpham/SeriesSanPham?series=" + value;
+        });
+        $('#seri5').change(function () {
+            const value = $('#seri5').val();
+            window.location.href = "/sanpham/SeriesSanPham?series=" + value;
+        });
+        $('#seri6').change(function () {
+            const value = $('#seri6').val();
+            window.location.href = "/sanpham/SeriesSanPham?series=" + value;
+        });
+        $('#seri7').change(function () {
+            const value = $('#seri7').val();
+            window.location.href = "/sanpham/SeriesSanPham?series=" + value;
+        });
+        $('#seri8').change(function () {
+            const value = $('#seri8').val();
+            window.location.href = "/sanpham/SeriesSanPham?series=" + value;
+        });
+    </script>
+</body>
+</html>

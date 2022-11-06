@@ -1,0 +1,342 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/CSS/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+            integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        #nuttruoc {
+            width: 50px;
+            height: 50px;
+            background-color: tomato;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            display: none;
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        .fa-sharp {
+            position: fixed;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            bottom: 85px;
+            right: 37px;
+            font-size: 20px;
+            color: yellow;
+        }
+    </style>
+</head>
+<body style="font-family: Roboto, sans-serif; line-height: 1.25rem; background-color: rgb(248, 248, 252); ">
+    <div style="background-color: #1435c3">
+        <nav style="width: 1200px; background-color: #1435c3" class="navbar navbar-expand-sm navbar-dark m-auto">
+            <ul class="navbar-nav m-auto a-white">
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/quanly">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Khuyến mãi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Hệ thống Showroom</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tư vấn mua hàng: 1800 6867</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">CSKH: 1800 6865</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tin công nghệ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Xây dựng cấu hình</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div>
+        <nav style="width: 1200px" class="navbar navbar-expand-sm navbar-dark m-auto">
+            <ul style="max-width: 1200px" class="navbar-nav a-gray">
+                <li class="nav-item me-2  align-self-center">
+                    <a href="#">
+                        <img style="width: 100px" src="~/img/logo.png" alt="Alternate Text" />
+                    </a>
+                </li>
+
+                <li class="nav-item align-self-center">
+                    <input style="width: 450px" class="form-control" type="text" name="name" value="" placeholder="Nhập từ khóa cần tìm" />
+                </li>
+                <li class="nav-item align-self-center">
+                    <a style="width: 100px; color: white" class="btn btn-primary" href="#">Tìm kiếm</a>
+                </li>
+                <li class="nav-item ms-2">
+                    <div class=" d-flex align-items-center">
+                        <div>
+                            <img style="width: 30px" src="~/img/user-main.png" alt="Alternate Text" />
+                        </div>
+                        <div>
+                            <a class="" href="#">Đăng nhập</a>
+                            <br />
+                            <a class="" href="#">Đăng kí</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item ms-2 align-self-center">
+                    <img style="width: 50px" src="~/img/chuong.png" alt="Alternate Text" />
+                </li>
+                <li class="nav-item ms-2">
+                    <div class="justify-content-center d-flex align-items-center">
+                        <div>
+                            <img style="width: 50px" src="~/img/giohang.png" alt="Alternate Text" />
+                        </div>
+                        <div>
+                            <a class="nav-link" href="#">Giỏ hàng của bạn</a>
+                            <a class="nav-link" href="#">(0) sản phẩm</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div style="background-color: #252525" class="wrapper-nav">
+        <nav style="width: 1200px;" class="navbar navbar-expand-sm navbar-dark p-0 m-auto">
+            <ul style="max-width: 1250px" class="navbar-nav a-white">
+                <li class="nav-item align-self-center navigation-1">
+                    <a class="nav-link" href="/home/index">
+                        LapTop
+                    </a>
+                    <ul class="navbar-nav navigation-2">
+                        <li class="nav-item">
+                            <a href="/home/acer">ACER</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/home/asus">ASUS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/home/msi">MSI</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/home/dell">DELL</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/home/apple">APPLE</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item align-self-center navigation-1">
+                    <a class="nav-link" href="#">
+                        Laptop theo giá
+                    </a>
+                    <ul class="navbar-nav navigation-2">
+                        <li class="nav-item">
+                            <a href="#">Dưới 10 triệu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">10 - 15 triệu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">15 - 20 triệu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">20 - 25 triệu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">25 - 30 triệu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">Trên 30 triệu</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item align-self-center navigation-1">
+                    <a class="nav-link a-main" href="#">
+                        Laptop theo thương hiệu
+                    </a>
+                    <ul class="navbar-nav navigation-2">
+                        <li class="nav-item">
+                            <a href="home/acer">ACER</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">ASUS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">MSI</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">DELL</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">APPLE</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item align-self-center navigation-1">
+                    <a class="nav-link a-main" href="#">
+                        Linh kiện laptop
+                    </a>
+                </li>
+                <li class="nav-item align-self-center navigation-1">
+                    <a class="nav-link a-main" href="#">
+                        Laptop theo nhu cầu
+                    </a>
+                </li>
+                <li class="nav-item align-self-center navigation-1">
+                    <a class="nav-link a-main" href="#">
+                        Laptop theo cấu hình
+                    </a>
+                    <ul class="navbar-nav navigation-2">
+                        <li class="nav-item">
+                            <a href="home/acer/1">Intel Core i3</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">Intel Core i5</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">Intel Core i7</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">Intel Core i9</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">AMD Ryzen 3</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">AMD Ryzen 5</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">AMD Ryzen 7</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div style="width: 1200px" id="slideshow">
+        <div class="slide-wrapper">
+            <div class="slide">
+                <img src="~/img/banner1.png">
+            </div>
+            <div class="slide">
+                <img src="~/img/banner2.png">
+            </div>
+            <div class="slide">
+                <img src="~/img/banner3.png">
+            </div>
+            <div class="slide">
+                <img src="~/img/banner4.png">
+            </div>
+            <div class="slide">
+                <img src="~/img/banner5.png">
+            </div>
+        </div>
+    </div>
+    <div style="width: 1200px" class="d-flex flex-row m-auto mt-4 mb-4">
+        <div style="width: 300px; margin: 5px">
+            <a href="">
+                <img class="w-100 rounded-3" src="~/img/bn1.png" alt="Alternate Text" />
+            </a>
+        </div>
+        <div style="width: 300px; margin: 5px">
+            <a href="">
+                <img class="w-100 rounded-3" src="~/img/bn2.png" alt="Alternate Text" />
+            </a>
+        </div>
+        <div style="width: 300px; margin: 5px">
+            <a href="">
+                <img class="w-100 rounded-3" src="~/img/bn3.png" alt="Alternate Text" />
+            </a>
+        </div>
+        <div style="width: 300px; margin: 5px">
+            <a href="">
+                <img class="w-100 rounded-3" src="~/img/bn4.png" alt="Alternate Text" />
+            </a>
+        </div>
+    </div>
+    <div style="max-width:1200px;" class="container-fluid m-auto">
+        @RenderBody()
+    </div>
+    <footer style="background-color: lightgray" class="p-3">
+        <div style="max-width: 1200px" class="row m-auto">
+            <div class="row">
+                <div style="font-size: 12px" class="col-5">
+                    <h5>CÔNG TY CỔ PHẦN THƯƠNG MẠI - DỊCH VỤ NGUYỄN NGỌC THIÊN</h5>
+                    <p>
+                        © 1997 - 2020 Công Ty Cổ Phần Thương Mại - Dịch Vụ Phong Vũ
+                        Giấy chứng nhận đăng ký doanh nghiệp: 0304998358 do Sở KH-ĐT TP.HCM
+                        cấp lần đầu ngày 30 tháng 05 năm 2007
+                    </p>
+                </div>
+                <div style="font-size: 12px" class="col-5">
+                    <h6>Địa chỉ trụ sở chính:</h6>
+                    <p>Tầng 5, Số 117-119-121 Nguyễn Du, Phường Bến Thành, Quận 1, Thành Phố Hồ Chí Minh</p>
+                    <h6>Văn phòng điều hành miền Bắc:</h6>
+                    <p>Tầng 6, Số 1 Phố Thái Hà, Phường Trung Liệt, Quận Đống Đa, Hà Nội                    </p>
+                    <h6>Văn phòng điều hành miền Nam:</h6>
+                    <p>
+                        Tầng 11 Minh Long Tower, số 17 Bà Huyện Thanh Quan,
+                        Phường Võ Thị Sáu, Quận 3, TP. Hồ Chí Minh
+                    </p>
+                </div>
+                <div class="col-2">
+                    <img src="~/img/thongbao.png" alt="Alternate Text" />
+                    <img src="~/img/dmca.png" alt="Alternate Text" />
+                </div>
+            </div>
+        </div>
+    </footer>
+    @* ------------------------------------------------------------------------------------------------------------ *@
+    <div id="nuttruoc">
+        <i class="fa-sharp fa-solid fa-arrow-up"></i>
+    </div>
+
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            $(window).scroll
+                (
+                    function () {
+                        if ($(this).scrollTop()) {
+                            $('#nuttruoc').fadeIn();
+                        }
+                        else {
+                            $('#nuttruoc').fadeOut();
+                        }
+
+                    }
+                )
+            $('#nuttruoc').click
+                (
+                    function () {
+                        $('html, body').animate({ scrollTop: 0, }, 5);
+                    }
+                )
+        }
+        );
+    </script>
+
+</body>
+</html>

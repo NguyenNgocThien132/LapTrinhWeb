@@ -1,0 +1,52 @@
+﻿@model  List<_2001207118_NguyenNgocThien.Models.SanPham>
+@{
+    ViewBag.Title = "MSI - Sản phẩm";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<div style="background-color: aliceblue ;padding: 10px;border-radius: 10px;border:1px solid lightgray" class="row m-auto">
+    <div class="col-12 acer-heading text-center">
+        Laptop MSI
+    </div>
+</div>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        double tietkiem = 0, sale = 0; ;
+        tietkiem = Convert.ToDouble(item.GiaGiam) - Convert.ToDouble(item.GiaTien);
+        sale = Math.Round(100 - ((Convert.ToDouble(item.GiaTien) / Convert.ToDouble(item.GiaGiam)) * 100), 2);
+        if (item.NhaSanXuat == "MSI")
+        {
+            <div class="col-2 mt-2 mb-3">
+                <a style="text-decoration: none" href="#">
+                    <div class="card  border-0">
+                        <div class="card-img p-2 position-relative">
+                            <img class="w-100 imgSP" src="~/img/MSI/@item.HinhAnh" alt="Alternate Text" />
+                        </div>
+                        @if (item.GiaGiam != null)
+                        {
+                            <div style="border-radius: 5px; height: 36px;width: 90px; line-height: 12px; padding: 0.25rem 0.5rem;top: 150px;left: 16px; background-image:url(../../img/tietkiem.png); background-size: 100%;background-repeat: no-repeat" class="position-absolute">
+                                <div style="font-size: 10px; font-weight: 700; color: rgb(255, 213, 145);">Tiết kiệm</div>
+                                <div style=" font-size: 13px; line-height: 18px; font-weight: 700; color: rgb(255, 255, 255);">@tietkiem.ToString("C")</div>
+                            </div>
+                        }
+                        <div class="card-body">
+                            <p style="display: block; display: -webkit-box; -webkit-line-clamp: 1; /* số dòng hiển thị */ -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; " class="card-title text-black">
+                                @item.TenSP
+                            </p>
+                            <p style="height: 80px;" class="card-text text-primary">
+                                <span style="color: rgb(230, 152, 58); font-weight: 500; font-size: 12px; line-height: 16px; ">Còn @item.SoLuong sản phẩm</span>
+                                <span style="font-size: 15px; font-weight: 700; color: rgb(20, 53, 195);line-height: 24px ">@item.GiaTien.Value.ToString("C")</span>
+                                @if (item.GiaGiam != null)
+                                {
+                                    <del style="color: gray;font-size:14px">@item.GiaGiam.Value.ToString("C")</del>
+                                    <span style="font-size: 15px; font-weight: 400; color: rgb(20, 53, 195)">@sale %</span>
+                                }
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    }
+</div>
+

@@ -1,0 +1,21 @@
+﻿@model _2001207118_NguyenNgocThien.Models.SanPham
+@{
+    ViewBag.Title = "DeleteSanPham";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<form action="/admin/deletesanpham" method="post">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="ID">ID</label>
+            <input class="form-control" type="number" name="ID" id="ID" value="@Model.ID" />
+        </div>
+        <div class="col-md-6">
+            <label for="TenSP">Tên Sản Phẩm</label>
+            <input class="form-control" type="text" name="TenSP" id="TenSP" value="@Model.TenSP" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="/admin/quanly" class="btn btn-primary">Quay lại</a>
+</form>
+

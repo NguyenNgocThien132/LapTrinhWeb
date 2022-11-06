@@ -1,0 +1,167 @@
+﻿@model _2001207118_NguyenNgocThien.Models.SanPham
+@{
+    ViewBag.Title = "ChiTietSanPham";
+    Layout = "~/Views/Shared/_LayoutPage3.cshtml";
+}
+<style>
+    .btn-muangay {
+        background-color: rgb(20, 53, 195);
+        color: white;
+        border-radius: 4px;
+    }
+
+    .muangay-hover:hover .btn-muangay {
+        background-color: rgb(16 52 147);
+        color: white;
+        border-radius: 4px;
+    }
+
+    .btn-themgiohang {
+        border: 1px solid rgb(20, 53, 195);
+        color: rgb(20, 53, 195);
+        border-radius: 4px;
+    }
+
+    .themgiohang-hover:hover .btn-themgiohang {
+        background-color: rgb(20, 53, 195);
+        color: white;
+        border-radius: 4px;
+    }
+</style>
+@{
+    double tietkiem = 0, sale = 0; ;
+    tietkiem = Convert.ToDouble(Model.GiaGiam) - Convert.ToDouble(Model.GiaTien);
+    sale = Math.Round(((Convert.ToDouble(Model.GiaTien) / Convert.ToDouble(Model.GiaGiam)) * 100) - 100, 2);
+    ViewBag.sale = sale;
+    ViewBag.tietkiem = tietkiem;
+}
+<div class="row">
+    <div class="col-md-9" style="padding: 24px; background-color: white">
+        <div class="row">
+            <div class="col-5">
+                <div style="border-radius: 4px">
+                    <img class="w-100" src="~/img/@Model.NhaSanXuat/@Model.HinhAnh" alt="Alternate Text" />
+                </div>
+                <hr />
+                <div style="font-size: 14px; padding: 16px">
+                    -CPU: @ViewBag.ctsp.CPU
+                    <br />
+                    -Màn hình: @ViewBag.ctsp.ManHinh
+                    <br />
+                    -RAM: @ViewBag.ctsp.RAM
+                    <br />
+                    -Đồ họa: @ViewBag.ctsp.DoHoa
+                    <br />
+                    -Lưu trữ: @ViewBag.ctsp.LuuTru
+                    <br />
+                    -Hệ điều hành: @ViewBag.ctsp.HeDieuHanh
+                    <br />
+                    -Pin: @ViewBag.ctsp.Pin
+                    <br />
+                    -Khối Lượng: @ViewBag.ctsp.KhoiLuong
+                </div>
+            </div>
+            <div style="border-radius: 4px" class="col-7 p-2">
+                <p style="font-size: 24px; line-height: 1.33; font-weight: 500; ">@Model.TenSP (@ViewBag.ctsp.ManHinh/@ViewBag.ctsp.CPU/@ViewBag.ctsp.RAM/@ViewBag.ctsp.LuuTru/@ViewBag.ctsp.HeDieuHanh/@ViewBag.ctsp.KhoiLuong)</p>
+                <p>Thương hiệu <span style="color: rgb(20, 53, 195)">@Model.NhaSanXuat</span></p>
+                <span style="font-size: 16px; font-weight: 700; color: rgb(20, 53, 195)">@Model.GiaTien.Value.ToString("C")</span>
+                <br />
+                @if (Model.GiaGiam != null)
+                {
+                    <del style="color: gray;font-size:13px">@Model.GiaGiam.Value.ToString("C")</del>
+                    <span style="color: rgb(20, 53, 195)">@ViewBag.sale%</span>
+                }
+                <hr style="margin-top: 20px" />
+                @if (Model.GiaGiam != null)
+                {
+                    <h5>KHUYẾN MÃI ĐÃ NHẬN</h5>
+                    <div style="border: 1px solid rgb(20, 53, 195); border-radius: 4px" class="p-2 d-flex align-items-center mb-3">
+                        <div>
+                            <img style="vertical-align: middle" src="~/img/CTSP/gift.png" alt="Alternate Text" />
+                        </div>
+                        <div style="margin-left: 10px">
+                            Giảm @ViewBag.tietkiem.ToString("C") (áp dụng vào giá sản phẩm)
+                        </div>
+                    </div>
+                }
+
+                <div class="row">
+                    <div class="col-md-6 muangay-hover">
+                        <a class="btn btn-muangay w-100" href="#">MUA NGAY</a>
+                    </div>
+                    <div class="col-md-6 themgiohang-hover">
+                        <a class="btn btn-themgiohang btn-outline-primary w-100" href="#">THÊM VÀO GIỎ HÀNG</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="d-flex align-items-center">
+            <div>
+                <img style="width: 30px" src="~/img/CTSP/free-shipping.png" />
+            </div>
+            <div style="margin-left: 15px; color: lawngreen">
+                Sản phẩm được miễn phí giao hàng
+            </div>
+        </div>
+        <hr />
+        <div>
+            <div style="font-weight: 700" class="mb-3">Chính sách bán hàng</div>
+            <div class="d-flex align-items-center mb-3">
+                <div>
+                    <img style="width: 30px"  src="~/img/CTSP/delivery-car.png" />
+                </div>
+                <div style="margin-left: 15px">
+                    Miễn phí giao hàng cho đơn hàng từ 800K
+                </div>
+            </div>
+            <div class="d-flex align-items-center mb-3">
+                <div>
+                    <img style="width: 30px"  src="~/img/CTSP/security.png" />
+                </div>
+                <div style="margin-left: 15px">
+                    Cam kết hàng chính hãng 100%
+                </div>
+            </div>
+            <div class="d-flex align-items-center mb-3">
+                <div>
+                    <img style="width: 30px"  src="~/img/CTSP/return-box.png" />
+                </div>
+                <div style="margin-left: 15px">
+                    Đổi trả trong vòng 10 ngày
+                </div>
+            </div>
+        </div>
+        <div>
+            <div style="font-weight: 700" class="mb-3 mt-5">
+                Dịch vụ khác
+            </div>
+            <div class="d-flex align-items-center mb-3">
+                <div>
+                    <img style="width: 30px"  src="~/img/CTSP/settings.png" />
+                </div>
+                <div style="margin-left: 15px">
+                    Sửa chữa đồng giá 150.000đ.
+                </div>
+            </div>
+            <div class="d-flex align-items-center mb-3">
+                <div>
+                    <img style="width: 30px"  src="~/img/CTSP/monitor.png" />
+                </div>
+                <div style="margin-left: 15px">
+                    Vệ sinh máy tính, laptop.
+                </div>
+            </div>
+            <div class="d-flex align-items-center mb-3">
+                <div>
+                    <img style="width: 30px"  src="~/img/CTSP/security.png" />
+                </div>
+                <div style="margin-left: 15px">
+                    Bảo hành tại nhà.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

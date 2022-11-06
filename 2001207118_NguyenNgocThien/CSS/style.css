@@ -1,0 +1,123 @@
+﻿#slideshow {
+    overflow: hidden;
+    height: 400px;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.slide-wrapper {
+    width: 10000px;
+    -webkit-animation: slide 15s ease infinite;
+}
+
+.slide {
+    float: left;
+    height: auto;
+    width: 1500px;
+}
+
+    .slide img {
+        width: 100%;
+    }
+
+@-webkit-keyframes slide {
+    20% {
+        margin-left: -200px;
+    }
+
+    40% {
+        margin-left: -1700px;
+    }
+
+    60% {
+        margin-left: -3200px;
+    }
+
+    80% {
+        margin-left: -4700px;
+    }
+
+    100% {
+        margin-left: -6200px;
+    }
+}
+/*============================*/
+.a-white li a {
+    color: white;
+}
+
+.a-gray li a {
+    color: gray;
+}
+
+.navigation-1 {
+    position: relative;
+}
+
+.navigation-2 {
+    display: none;
+    position: absolute;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+    .navigation-2 li {
+        padding: 8px 14px;
+    }
+
+.navigation-1:hover .navigation-2 {
+    display: block;
+    width: 200px;
+    background-color: aqua;
+    border-radius: 5px;
+}
+
+    .navigation-1:hover .navigation-2 li a {
+        color: black;
+    }
+
+.navigation-2 li:hover {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.navigation-2 li:hover .nav-item a{
+    color: red;
+}
+/*=============================*/
+.card-img:hover .imgSP {
+    transform: scale(1.1);
+    transition-duration: .4s;
+}
+
+a {
+    text-decoration: none;
+}
+/*===================================*/
+/*heading*/
+.acer-heading {
+    font-size: 30px;
+    font-weight: bold;
+    color: blue;
+}
+
+.xemtatca {
+    color: gray;
+}
+
+.gray {
+    padding-left: 55px;
+}
+
+    .gray:hover .xemtatca {
+        color: red;
+    }
+/*===================================*/
+.wrapper-nav {
+    position: sticky;
+    box-shadow: 0 0 5px 2px #ccc;
+    left: 50%;
+    z-index: 7000;
+    top: 0;
+}
+/*===================================*/
