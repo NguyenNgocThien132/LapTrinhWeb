@@ -1,0 +1,47 @@
+﻿@model _2001207118_NguyenNgocThien.Models.ChiTietSanPham
+@{
+    ViewBag.Title = "ChiTietSP";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayoutPage1.cshtml";
+}
+@if (Model != null)
+{
+    <div style="width: 100%">
+        <div style="width: 900px; margin: 0 auto; text-align:center;font-size: 30px;font-weight:bold; color:cyan; text-shadow: 2px 3px 5px #808080">
+            <p>@Model.SanPham.TenSP</p>
+        </div>
+    </div>
+    <table class="table">
+        <tr>
+            <th>CPU</th>
+            <th>Màn hình</th>
+            <th>RAM</th>
+            <th>Card đồ họa</th>
+            <th>Lưu trữ</th>
+            <th>Hệ điều hành</th>
+            <th>Pin</th>
+            <th>Khối lượng</th>
+        </tr>
+        <tr>
+            <td>@Model.CPU</td>
+            <td>@Model.ManHinh</td>
+            <td>@Model.RAM</td>
+            <td>@Model.DoHoa</td>
+            <td>@Model.LuuTru</td>
+            <td>@Model.HeDieuHanh</td>
+            <td>@Model.Pin</td>
+            <td>@Model.KhoiLuong</td>
+        </tr>
+    </table>
+
+    <div class="text-center">
+        <div style="width: 300px; margin:0 auto">
+            <a class="btn btn-primary mb-4" href="/admin/admin/quanly">Quay lại</a>
+        </div>
+    </div>
+}
+else
+{
+    <div style="color:red; margin: auto;font-weight:bold">Sản phẩm này chưa có thông tin chi tiết</div>
+    <a class="btn btn-primary mt-3 mb-3" href="/admin/admin/quanly">Quay lại</a>
+}
+

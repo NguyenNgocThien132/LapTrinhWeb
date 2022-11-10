@@ -73,7 +73,14 @@ namespace _2001207118_NguyenNgocThien.Controllers
                 var authenManager = HttpContext.GetOwinContext().Authentication;
                 var userIdentity = userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
                 authenManager.SignIn(new AuthenticationProperties(), userIdentity);
-                return RedirectToAction("Index", "Home");
+                if (userManager.IsInRole(user.Id, "Admin"))
+                {
+                    return RedirectToAction("index","home", new { area = "Admin"});
+                }
+                else
+                {
+                    return RedirectToAction("index", "home");
+                }
             }
             else
             {
