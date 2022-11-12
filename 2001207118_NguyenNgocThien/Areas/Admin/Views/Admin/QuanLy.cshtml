@@ -30,7 +30,7 @@
                 <i class="fa @ViewBag.IconClass"></i>
             }
         </th>
-        <th>ID Thương Hiệu</th>
+        <th>Thương Hiệu</th>
         <th style="width: 300px">
 
             <a href="/admin/admin/quanly?SortColumn=TenSP&IconClass=@iconclass&Page=1">Tên sản phẩm</a>
@@ -49,37 +49,39 @@
             }
         </th>
         <th>Giá Khuyến Mãi</th>
+        <th>Hình</th>
         <th>Chi tiết sản phẩm</th>
         <th>Tùy chỉnh</th>
-        <th>Xóa SP</th>
     </tr>
     @foreach (var item in Model)
     {
-        <tr>
-            <td>@item.ID</td>
-            <td>@item.ThuongHieu.NSX</td>
-            <td>@item.TenSP</td>
-            <td>@item.SoLuong</td>
-            <td>@item.GiaTien.Value.ToString("C")</td>
-            @if (@item.GiaGiam != null)
-            {
-                <td>@item.GiaGiam.Value.ToString("C")</td>
-            }
-            else
-            {
-                <td>@item.GiaGiam</td>
-            }
-            <td>
-                <a href="/admin/admin/chitietsp/@item.ID">Chi tiết</a>
-            </td>
-            <td>
-                <a href="/admin/admin/edit/@item.ID">Edit</a> <br />
-                <a href="/admin/admin/editsanpham/@item.ID">Edit Thông tin</a>
-            </td>
-            <td>
-                <a href="/admin/admin/deletesanpham/@item.ID">Delete</a>
-            </td>
-        </tr>
+<tr>
+    <td>@item.ID</td>
+    <td>@item.ThuongHieu.NSX</td>
+    <td>@item.TenSP</td>
+    <td>@item.SoLuong</td>
+    <td>@item.GiaTien.Value.ToString("C")</td>
+    @if (@item.GiaGiam != null)
+    {
+        <td>@item.GiaGiam.Value.ToString("C")</td>
+    }
+    else
+    {
+        <td>@item.GiaGiam</td>
+    }
+    <td>
+        <img style="width: 80px; height: 80px" src="~/img/@item.NhaSanXuat/@item.HinhAnh" alt="Alternate Text" />
+    </td>
+    <td>
+        <a href="/admin/admin/chitietsp/@item.ID">Chi tiết</a>
+    </td>
+    <td>
+        <a href="/admin/admin/edit/@item.ID">Edit</a> <br />
+        <a href="/admin/admin/editsanpham/@item.ID">Edit Thông tin</a> <br />
+        <a href="/admin/admin/deletesanpham/@item.ID">Delete</a>
+    </td>
+
+</tr>
     }
     <tr>
         <td colspan="9">

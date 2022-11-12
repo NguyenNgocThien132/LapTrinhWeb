@@ -85,27 +85,27 @@ namespace _2001207118_NguyenNgocThien.Areas.Admin.Controllers
             List<ThuongHieu> th = db.ThuongHieus.ToList();
             ViewBag.th = th;
             string FileName = Path.GetFileName(HinhAnh.FileName);
-            if (sanpham.NhaSanXuat == "Acer")
+            if (sanpham.NhaSanXuat.Trim() == "Acer")
             {
                 string path = Path.Combine(Server.MapPath("~/img/Acer"), FileName);
                 HinhAnh.SaveAs(path);
             }
-            if (sanpham.NhaSanXuat == "ASUS")
+            if (sanpham.NhaSanXuat.Trim() == "ASUS")
             {
                 string path = Path.Combine(Server.MapPath("~/img/ASUS"), FileName);
                 HinhAnh.SaveAs(path);
             }
-            if (sanpham.NhaSanXuat == "DELL")
+            if (sanpham.NhaSanXuat.Trim() == "DELL")
             {
                 string path = Path.Combine(Server.MapPath("~/img/DELL"), FileName);
                 HinhAnh.SaveAs(path);
             }
-            if (sanpham.NhaSanXuat == "MSI")
+            if (sanpham.NhaSanXuat.Trim() == "MSI")
             {
                 string path = Path.Combine(Server.MapPath("~/img/MSI"), FileName);
                 HinhAnh.SaveAs(path);
             }
-            if (sanpham.NhaSanXuat == "Apple")
+            if (sanpham.NhaSanXuat.Trim() == "Apple")
             {
                 string path = Path.Combine(Server.MapPath("~/img/Apple"), FileName);
                 HinhAnh.SaveAs(path);

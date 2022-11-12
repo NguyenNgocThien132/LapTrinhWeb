@@ -190,11 +190,11 @@
     <Content Include="img\banner3.png" />
     <Content Include="img\banner4.png" />
     <Content Include="img\banner5.png" />
+    <Content Include="img\bell.png" />
     <Content Include="img\bn1.png" />
     <Content Include="img\bn2.png" />
     <Content Include="img\bn3.png" />
     <Content Include="img\bn4.png" />
-    <Content Include="img\chuong.png" />
     <Content Include="img\CTSP\delivery-car.png" />
     <Content Include="img\CTSP\free-shipping.png" />
     <Content Include="img\CTSP\monitor.png" />
@@ -211,7 +211,6 @@
     <Content Include="img\DELL\DELL-8.png" />
     <Content Include="img\dmca.png" />
     <Content Include="img\CTSP\gift.png" />
-    <Content Include="img\giohang.png" />
     <Content Include="img\logo.png" />
     <Content Include="img\MSI\MSI-1.png" />
     <Content Include="img\MSI\MSI-10.png" />
@@ -223,6 +222,8 @@
     <Content Include="img\MSI\MSI-7.png" />
     <Content Include="img\MSI\MSI-8.png" />
     <Content Include="img\MSI\MSI-9.png" />
+    <Content Include="img\mystical phoenix.png" />
+    <Content Include="img\shopping-cart.png" />
     <Content Include="img\thongbao.png" />
     <Content Include="img\ThuongHieu\Banner-laptop.png" />
     <Content Include="img\ThuongHieu\QC-1.png" />

@@ -47,39 +47,14 @@
     </style>
 </head>
 <body style="font-family: Roboto, sans-serif; line-height: 1.25rem; background-color: rgb(248, 248, 252); ">
-    <div style="background-color: #1435c3">
-        <nav style="width: 1200px; background-color: #1435c3" class="navbar navbar-expand-sm navbar-dark m-auto">
-            <ul class="navbar-nav m-auto a-white">
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin/admin/quanly">Admin</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Khuyến mãi</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Hệ thống Showroom</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Tư vấn mua hàng: 1800 6867</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">CSKH: 1800 6865</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Tin công nghệ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Xây dựng cấu hình</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-    <div style="box-shadow: 0px 5px 10px 1px gray">
+
+    <div class="admin-layout" style="box-shadow: 0px 5px 10px 1px gray; position: sticky; top: 0; z-index: 1000000; background-color: #F8F8FC">
         <nav style="width: 1200px;" class="navbar navbar-expand-sm navbar-dark m-auto">
             <ul style="max-width: 1200px" class="navbar-nav a-gray">
                 <li class="nav-item me-2  align-self-center">
                     <a href="#">
-                        <img style="width: 100px" src="~/img/logo.png" alt="Alternate Text" />
+                        @*<img style="width: 100px" src="~/img/logo.png" alt="Alternate Text" />*@
+                        <img style="width: 80px;height: 70px" src="~/img/mystical phoenix.png" />
                     </a>
                 </li>
 
@@ -92,34 +67,41 @@
                 <li class="nav-item ms-2">
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <div class="row mt-3 usercheck">
-                            <div class="col-4">
-                                <img class="mt-1" style="width: 30px" src="~/img/user-main.png" alt="Alternate Text" />
+                        <div class="row mt-3 usercheck " id="menu-relative" style="width: 200px">
+                            <div class="col-4 d-flex justify-content-end">
+                                <a href="#">
+                                    <img class="" style="width: 40px" src="~/img/user-main.png" alt="Alternate Text" />
+                                </a>
                             </div>
                             <div class="col-8">
                                 <a class="" href="#">Xin chào,</a>
                                 <br />
                                 <a class="" href="#">@User.Identity.Name</a>
                             </div>
-                            <div class="col-12">
-                                <a href="/account/logout">Đăng xuất</a>
-                            </div>
+                            <ul class="menu-thongtin">
+                                <li>
+                                    <a href="#">Thông tin tài khoản</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/admin/quanly">Quản lý sản phẩm</a>
+                                </li>
+                                <li>
+                                    <a href="/home/index">Trang chủ</a>
+                                </li>
+                                <li class="d-flex justify-content-center">
+                                    <a class="btn btn-primary text-white w-100" href="/account/logout">
+                                        Đăng xuất
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     }
                 </li>
-                <li class="nav-item ms-2 align-self-center">
-                    <img style="width: 50px" src="~/img/chuong.png" alt="Alternate Text" />
+                <li>
+                    <a class="btn btn-success text-white mt-3 mx-2" href="/home/index">Trang chủ</a>
                 </li>
-                <li class="nav-item ms-2">
-                    <div class="justify-content-center d-flex align-items-center">
-                        <div>
-                            <img style="width: 50px" src="~/img/giohang.png" alt="Alternate Text" />
-                        </div>
-                        <div>
-                            <a class="nav-link" href="#">Giỏ hàng của bạn</a>
-                            <a class="nav-link" href="#">(0) sản phẩm</a>
-                        </div>
-                    </div>
+                <li>
+                    <a class="btn btn-success text-white mt-3" href="/admin/admin/quanly">Trang quản lý</a>
                 </li>
             </ul>
         </nav>

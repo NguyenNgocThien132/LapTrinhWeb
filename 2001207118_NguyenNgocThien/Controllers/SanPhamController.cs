@@ -154,8 +154,8 @@ namespace _2001207118_NguyenNgocThien.Controllers
         {
             SanPham sp = db.SanPhams.Where(row => row.ID == id).FirstOrDefault();
             ChiTietSanPham ctsp = db.ChiTietSanPhams.Where(row => row.ID == id).FirstOrDefault();
-            ViewBag.ctsp = ctsp;
-            return View(sp);
+            ViewBag.sp = db.SanPhams.ToList();
+            return View(ctsp);
         }
     }
 }

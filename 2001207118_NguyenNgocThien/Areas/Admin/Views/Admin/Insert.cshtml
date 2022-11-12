@@ -53,7 +53,7 @@
                 <option value="">Please Select...</option>
                 @foreach (var item in ViewBag.th)
                 {
-                    <option value="@item.NSX">@item.NSX</option>
+                    <option value="@item.NSX.Trim()">@item.NSX</option>
                 }
             </select>
         </div>

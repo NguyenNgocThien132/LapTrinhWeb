@@ -75,7 +75,7 @@
         <nav style="width: 1200px;" class="navbar navbar-expand-sm navbar-dark m-auto">
             <ul style="max-width: 1200px" class="navbar-nav a-gray">
                 <li class="nav-item me-2  align-self-center">
-                    <a href="#">
+                    <a href="/home/index">
                         <img style="width: 100px" src="~/img/logo.png" alt="Alternate Text" />
                     </a>
                 </li>
@@ -89,7 +89,7 @@
                 <li class="nav-item ms-2">
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <div class="row mt-3 usercheck">
+                        <div class="row mt-3 usercheck " id="menu-relative" style="width: 200px">
                             <div class="col-4">
                                 <img class="mt-1" style="width: 30px" src="~/img/user-main.png" alt="Alternate Text" />
                             </div>
@@ -98,9 +98,16 @@
                                 <br />
                                 <a class="" href="#">@User.Identity.Name</a>
                             </div>
-                            <div class="col-12">
-                                <a href="account/logout">Đăng xuất</a>
-                            </div>
+                            <ul class="menu-thongtin">
+                                <li>
+                                    <a href="#">Thông tin tài khoản</a>
+                                </li>
+                                <li class="d-flex justify-content-center">
+                                    <a class="btn btn-primary text-white w-100" href="/account/logout">
+                                        Đăng xuất
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     }
                     else
@@ -118,16 +125,16 @@
                     }
                 </li>
                 <li class="nav-item ms-2 align-self-center">
-                    <img style="width: 50px" src="~/img/chuong.png" alt="Alternate Text" />
+                    <img style="width: 35px" src="~/img/bell.png" alt="Alternate Text" />
                 </li>
                 <li class="nav-item ms-2">
-                    <div class="justify-content-center d-flex align-items-center">
-                        <div>
-                            <img style="width: 50px" src="~/img/giohang.png" alt="Alternate Text" />
+                    <div class="d-flex justify-content-center">
+                        <div class="mt-3 mx-3">
+                            <img style="width: 35px" src="~/img/shopping-cart.png" alt="Alternate Text" />
                         </div>
-                        <div>
-                            <a class="nav-link" href="#">Giỏ hàng của bạn</a>
-                            <a class="nav-link" href="#">(0) sản phẩm</a>
+                        <div class="mt-3">
+                            <a class="" href="#">Giỏ hàng của bạn</a> <br />
+                            <a class="" href="#">(0) sản phẩm</a>
                         </div>
                     </div>
                 </li>

@@ -80,9 +80,8 @@
     background-color: white;
     border-radius: 5px;
 }
-
-.navigation-2 li:hover .nav-item a{
-    color: red;
+.blue:hover a{
+    color:blue;
 }
 /*=============================*/
 .card-img:hover .imgSP {
@@ -121,3 +120,53 @@ a {
     top: 0;
 }
 /*===================================*/
+#menu-relative {
+    position: relative;
+}
+
+.menu-thongtin {
+    background-color: white;
+    padding: 10px;
+    position: absolute;
+    display: none;
+    top: 40px;
+    z-index: 9999;
+    width: 300px;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+
+#menu-relative:hover .menu-thongtin {
+    display: block;
+    z-index: 9999;
+}
+
+.menu-thongtin li a {
+    color: black;
+}
+
+.menu-thongtin li {
+    padding: 10px 20px;
+    list-style-type: none;
+}
+
+    .menu-thongtin li:hover {
+        background-color: #F5F5F5;
+        border-radius: 10px;
+    }
+
+    .menu-thongtin li:last-child {
+        padding: 0;
+        background-color: none;
+        margin-top: 10px;
+    }
+/*=========================================*/
+.card:hover{
+    border: 1px solid #364db9;
+    border-radius: 10px;
+    box-shadow: 5px 5px 8px;
+}
+.card img {
+    border-radius: 10px;
+}
+/*============================*/
